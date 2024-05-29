@@ -24,14 +24,14 @@ class UserComponentManager @Inject constructor(
         fun counterRepository(): CounterRepository
     }
 
-    private var component: UserComponent = componentBuilder.get().bindUserId(userAccountRepository.currentUserId).build()
+    private var component: UserComponent = componentBuilder.get().userId(userAccountRepository.currentUserId).build()
 
     init {
         scope.launch {
             userAccountRepository.observeCurrentUserId()
                 .drop(1)
                 .collect {
-                component = componentBuilder.get().bindUserId(it).build()
+                component = componentBuilder.get().userId(it).build()
             }
         }
     }

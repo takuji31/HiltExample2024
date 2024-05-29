@@ -1,5 +1,6 @@
 package dev.takuji31.component
 
+import dagger.BindsInstance
 import dagger.hilt.DefineComponent
 import dagger.hilt.components.SingletonComponent
 import dev.takuji31.model.UserId
@@ -10,7 +11,7 @@ import javax.inject.Scope
 interface UserComponent {
     @DefineComponent.Builder
     interface Builder {
-        fun bindUserId(userId: UserId): Builder
+        fun userId(@BindsInstance userId: UserId): Builder
         fun build(): UserComponent
     }
 }
