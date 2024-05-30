@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.skip
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
+import javax.inject.Singleton
 
+@Singleton
 class UserComponentManager @Inject constructor(
     private val scope: CoroutineScope,
     private val componentBuilder: Provider<UserComponent.Builder>,
